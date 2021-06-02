@@ -18,7 +18,7 @@ For each different ways of creating object write different solutions.
 - Organize using object
 - Use a function to create object
 - Convert the function to use `this` keyword
-- Write test by creating two objects also test both methods.
+- Write test by creating two objects also test both methods. 
 
 ### To test use the following data
 
