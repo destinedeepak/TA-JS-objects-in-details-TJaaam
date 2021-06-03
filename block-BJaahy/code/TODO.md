@@ -1,12 +1,30 @@
 # More about class
 
 - Create a class named `Square` which accepts one parameter `side` and will set two property `width` and `height` to the value of `side`.
-
-- Add a method name `description` that will alert a message saying `The square is ${width} x ${height}`
+```js
+```
+```js
+class Square{
+    constructor(side){
+        this.width = side;
+        this.height = side;
+    }
+    description(){
+        alert(`The square is ${this.width} x ${this.height}`);
+    }
+    calcArea(){
+        return 4 * this.width;
+    }
+    get area(){
+        return 4 * this.width;
+    }
+}
+```
+- Add a method name `description` that will alert a mesage saying `The square is ${width} x ${height}`
 
 - Create a method inside the class named `calcArea` that will return the area of the square.
 
-- Create a `area` getter method using which we can get the area of the square.
+- Create a `area` getter method usin`g which we can get the area of the square.
 
 - Create a `area` setter method that will accept the area of the square. Based on the value of area it will set the value of `width` and `height`. If the passed value is not the area of the square alert say `Not a valid input`
 
