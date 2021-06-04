@@ -1,15 +1,15 @@
-console.log(this.document === document); // Output
+console.log(this.document === document); // true
 
 // ------------
 
-console.log(this === window); //Output
+console.log(this === window); // true
 
 // ------------
 
 var myFunction = function () {
   console.log(this);
 };
-myFunction(); // Output
+myFunction(); // window object
 
 // ------------
 
@@ -17,7 +17,7 @@ function f1() {
   'use strict';
   return this;
 }
-console.log(f1() === window); //Output
+console.log(f1() === window); //false
 
 // ------------
 
@@ -26,7 +26,7 @@ function foo() {
   console.log(this === window);
 }
 
-foo(); //Output ??
+foo(); // Simple function call true
 
 // ------------
 
@@ -34,7 +34,7 @@ foo(); //Output ??
 (function () {
   console.log('Anonymous function invocation');
   console.log(this === window);
-})(); //Output
+})(); //Anonymous function invocation true
 
 // ------------
 
@@ -42,7 +42,7 @@ var myObject = {};
 myObject.someMethod = function () {
   console.log(this);
 };
-myObject.someMethod(); //Value Of This
+myObject.someMethod(); //myObject
 
 // ------------
 
@@ -56,14 +56,14 @@ function Person(fn, ln) {
 }
 
 let person = new Person('John', 'Reed');
-person.displayName(); // Output
+person.displayName(); // John Reed
 let person2 = new Person('Paul', 'Adams');
-person2.displayName(); // Output
+person2.displayName(); // Paul Adams
 
 // ------------
 
 function foo() {
-  'use strict';
+  // 'use strict';
   console.log('Simple function call');
   console.log(this === window);
 }
@@ -76,10 +76,10 @@ let user = {
   },
 };
 
-user.foo(); // Output
+user.foo(); // simple function call false
 let fun1 = user.foo1;
-fun1(); // Output ??
-user.foo1(); // Output ??
+fun1(); // true
+user.foo1(); // 
 
 // ------------
 
@@ -91,13 +91,13 @@ var obj = {
   },
 };
 
-obj.getX(); // Output ??
+obj.getX(); // 81
 
 var retrieveX = obj.getX;
-retrieveX(); //Output ??
+retrieveX(); //9
 
 var boundGetX = retrieveX.bind(obj);
-boundGetX(); // Output ??
+boundGetX(); // 81
 
 // ------------
 
