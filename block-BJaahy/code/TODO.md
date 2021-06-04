@@ -8,15 +8,31 @@ class Square{
     constructor(side){
         this.width = side;
         this.height = side;
+        this.numberOfTime = 0;
     }
     description(){
         alert(`The square is ${this.width} x ${this.height}`);
     }
     calcArea(){
-        return 4 * this.width;
+        return this.width ** 2;
     }
     get area(){
-        return 4 * this.width;
+         if(this.numberOfTime > 3){
+           return `Upper Limit Reached`;
+        }
+        this.numberOfTime ++;
+        return this.width ** 2;
+    }
+    set area(area){
+        // if(count > 3){
+        //    return `Upper Limit Reached`;
+        // }
+        // numberOfTime ++;
+        this.width = Math.sqrt(area);
+        this.height = Math.sqrt(area);
+    }
+    static isEqual(square1, square2){
+        return square1.width === square2.width && square1.height === square2.height;
     }
 }
 ```
@@ -33,9 +49,15 @@ class Square{
 - Create another property named `numberOfTimes` that will hold the value of number of times the area property is accessed from the object. The values will initialize to `0`. The area property can't be accessed more than 4 times. If it crosses 4 times alert message `Upper Limit Reached`
 
 - Create two instance of the `Square` class
+```js
+let square1 = new Square(4);
+let square2 = new Square(5);
+```
 
 - Check the `area` getter method on both square. Check the `area` property on one square more than 4 times.
-
+```js
+Square.get;
+```
 - Check the `isEqual` method and pass the two instance you created above.
 
 ## User Class
@@ -57,3 +79,33 @@ class Square{
 - Check the `fullName` using getter
 
 - Check the `nameContains` method
+
+```js
+class User{
+    constructor(firstName, lastName){
+        this.firstName = firstName;
+        this.lastName = lastName
+    }
+    get fullName(){
+        return `${this.firstName} ${this.lastName}`;
+    }
+    set fullName(name){
+        if(name.length < 6){
+            alert(`Full name should be more than 5 characters`)
+        }else{
+            console.log("split")
+          name = name.split(" ");
+          this.firstName = name[0];
+          this.lastName = name[1];
+        }
+          
+    }
+    nameContains(string){
+        return (this.firstName + this.lastName).includes(string)
+    }
+}
+
+let user1 = new User("deepak","singh");
+let user2 = new User("dpk","hfahf");
+
+```
