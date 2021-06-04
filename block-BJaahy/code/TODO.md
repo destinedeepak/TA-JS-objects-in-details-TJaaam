@@ -17,19 +17,16 @@ class Square{
         return this.width ** 2;
     }
     get area(){
+        this.numberOfTime ++;
          if(this.numberOfTime > 3){
            return `Upper Limit Reached`;
         }
-        this.numberOfTime ++;
         return this.width ** 2;
     }
     set area(area){
-        // if(count > 3){
-        //    return `Upper Limit Reached`;
-        // }
-        // numberOfTime ++;
-        this.width = Math.sqrt(area);
-        this.height = Math.sqrt(area);
+        let sqr = Math.sqrt(area);
+        this.width = sqr
+        this.height = sqr;
     }
     static isEqual(square1, square2){
         return square1.width === square2.width && square1.height === square2.height;
