@@ -110,7 +110,7 @@ function Person(fn, ln) {
   };
 }
 
-let person = new Person('John', 'Reed');
+let person = new Person('John', 'Reed');/////////////////
 person.displayName(); // Output
 let person2 = new Person('Paul', 'Adams');
 person2.displayName(); // Output
