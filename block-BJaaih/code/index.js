@@ -3,7 +3,14 @@
 `myMap` will behave similar to how the `Array.map` works. To test the implementation use the code below.
 */
 
-// myMap function goes here
+function myMap(callback){
+  let obj = [];
+  for(let ele of this){
+    obj.push(callback(ele))
+  }
+  return obj;
+}
+// myMap.prototype = Array.map;
 
 // Test the myMap function you created above
 
