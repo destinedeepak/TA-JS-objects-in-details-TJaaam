@@ -25,7 +25,6 @@ console.log(vicky.age); // -> Logs 24
 
 var personStore = {
   greet: function(){console.log("Hello")},
-  introduce: function(){console.log(`Hi my name is ${this.name}`)}
 };
 
 // /********* Uncomment this line to test your work! *********/
@@ -49,9 +48,9 @@ sandra.greet(); //-> Logs 'hello'
 
 /*** CHALLENGE 3 of 3 ***/
 
-// add code here
+personStore.introduce = function(){console.log(`Hi my name is ${this.name}`)}
 
-// sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
+sandra.introduce(); // -> Logs 'Hi, my name is Sandra'    
 
 /****************************************************************
                     USING THE 'NEW' KEYWORD
@@ -144,11 +143,17 @@ function userFactory(name, score) {
   return user;
 }
 
-var adminFunctionStore;
-Object.setPrototypeOf(adminFunctionStore, userFunctionStore)
+var adminFunctionStore = Object.create(userFunctionStore)
 
 function adminFactory(name, score) {
-  
+  let obj = userFactory(name, score);
+  Object.setPrototypeOf(obj, adminFunctionStore)
+  obj.type = "Admin"
+  return obj 
+}
+
+adminFunctionStore.sharePublicMessage = function(){
+  console.log(`Welcome Users`)
 }
 
 /* Put code here for a method called sharePublicMessage*/
@@ -156,5 +161,5 @@ function adminFactory(name, score) {
 var adminFromFactory = adminFactory('Eva', 5);
 
 // /********* Uncomment these lines to test your work! *********/
-// adminFromFactory.sayType() // -> Logs "I am a Admin"
-// adminFromFactory.sharePublicMessage() // -> Logs "Welcome users!"
+adminFromFactory.sayType() // -> Logs "I am a Admin"
+adminFromFactory.sharePublicMessage() // -> Logs "Welcome users!"
