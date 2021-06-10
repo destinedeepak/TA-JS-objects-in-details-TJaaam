@@ -16,23 +16,23 @@ class Question{
         <div class="flex">
           <h2>${this.title}</h2>
           <p>Score</p>
-          <span>Try</span>
+          <span></span>
         </div>
         <div class="each-question">
              <input type="radio" id="question0" name="question" value="question1">
-             <label for="question0">${this.options[0]}</label>
+             <label for="question0">${this.options[0]}</label><br>
 
             <input type="radio" id="question1" name="question" value="question2">
-            <label for="question1">${this.options[1]}</label>
+            <label for="question1">${this.options[1]}</label><br>
 
             <input type="radio" id="question2" name="question" value="question3">
-            <label for="question2">${this.options[2]}</label>
+            <label for="question2">${this.options[2]}</label><br>
 
             <input type="radio" id="question3" name="question" value="question4">
             <label for="question3">${this.options[3]}</label>
         </div>
         <button class="submit">submit</button>
-        <button class="getCorrectAnswer">Get Correct Answer</button>
+        <button class="getCorrectAnswer">Answer</button>
         <button class="next">Next</button>`
         return div;
     }
@@ -70,7 +70,7 @@ class Quiz{
                       this.updateScore();
                       span.innerText="Correct";
                   }else{
-                      span.innerText="False"
+                      span.innerText="Wrong Answer"
                   }
                 }
             })
@@ -109,3 +109,10 @@ let question5 = new Question("5. Where is the capital of Canada?",["Washington, 
 let root = document.querySelector(".root");
 let quizInstance = new Quiz(root, [question1, question2, question3, question4, question5]);
 quizInstance.createUI()
+
+
+
+
+
+
+
