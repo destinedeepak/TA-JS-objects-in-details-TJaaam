@@ -15,7 +15,7 @@ METHODS:
 
 - isCorrect(answer)
 
-Check if the given answer is correct or not. It will accept one answer and return `true` is the answer is correct otherwise false.
+Check if the given answer is correct or not. It will accept one answer and return `true` if the answer is correct otherwise false.
 
 - getCorrectAnswer()
   This method will return the correct answer of the question.
