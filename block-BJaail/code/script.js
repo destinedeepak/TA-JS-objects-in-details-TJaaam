@@ -5,25 +5,23 @@ class todoList{
         this.root = root;
     }
     add(text){
-        console.log();
-        let todoInstance = new todo();
-        todoInstance.text = text;
-
+        let todoInstance = new todo(text);
         this.list.push(todoInstance);
         this.createUI()
     }
-    handleDelete(){
-        console.log("HI")
-        console.log(event.target,"Hii")
-
+    handleDelete(id){
+        let index = this.list.findIndex(item=> item.id===id)
+        this.list.splice(index, 1)
+        this.createUI();
     }
     createUI(){
         this.root.innerHTML = ""
         this.list.forEach(ele=>{
-            a = ele.createUI().querySelector("button");
-            console.log(a)
-            a.addEventListener('click',this.handleDelete.bind(ele))
-            root.append(ele.createUI());
+            // let button = ele.createUI().querySelector("button");
+            // button.addEventListener('click', this.handleDelete.bind(this))
+            let li = ele.createUI();
+            li.querySelector("button").addEventListener("click",this.handleDelete.bind(this, ele.id));
+            this.root.append(li);
         })
     }
 }
@@ -35,17 +33,17 @@ class todo{
         this.id = Date.now();
     }
 
-    // handleChange(event){
-    //     console.log(event.target.id)
-    //     console.log(todoListInstance)
-    // }
+    handleChange(event){
+       this.isCompleted = !this.isCompleted;
+       this.createUI()
+    }
 
     createUI(){
     let li = document.createElement("li");
     let checkbox = document.createElement('input')
     checkbox.setAttribute('type','checkbox')
     checkbox.checked = this.isCompleted;
-    // checkbox.addEventListener('change', this.handleChange);
+    checkbox.addEventListener('change', this.handleChange.bind(this));
 
     let span = document.createElement('span')
     span.innerText = this.text;
@@ -55,7 +53,6 @@ class todo{
     button.innerText ='X';
     button.id = this.id;
     button.classList.add('cross-btn');
-    // button.addEventListener('click',this.handleChange.bind(this))
     li.append(checkbox,span,button)
     return li;
     }
