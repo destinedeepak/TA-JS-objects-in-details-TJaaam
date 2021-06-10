@@ -46,31 +46,84 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-main{
-    max-width: 60vw;
+
+/* custom css  */
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  
+  .container {
+    max-width: 700px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 1rem;
+  }
+main{
+    background: linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5)),url("./media/quiz-bg.jpeg") no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    padding-top: 2rem;
 }
 .root {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    margin-top: 20vh;
+    margin-top: 4rem;
+}
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #4b61ec;
 }
 h2 {
-    font-size: 2rem;
+    font-size: 1.3rem;
+
 }
 p,span {
     font-size: 1.5rem;
     margin-top: 1rem;
     display: block;
 }
-input,label {
+p{
+    position: absolute;
+    top: 3rem;
+    right: 5rem;
+}
+span{
+    position: absolute;
+    top: 22.5rem;
+    left: 25rem;
+    color: #469eeb;
+}
+
+input{
+  margin-left: 2rem;
+  margin-top: .6rem;
+  display: inline-block;
+}
+label{
     font-size: 1.5rem;
-    margin-top: 1rem;
-    display: inline-block;
 }
 button {
-    margin-top: 1rem;
+    margin-top: 3rem;
     font-size: 1.2rem;
+    padding: .5rem .75rem;
+    border: 0;
+    border-radius: 8px;
+    background: #527fda;
+    color: #acbee2;
+    font-weight: bold;
+    margin-right: 1rem;
+    text-transform: capitalize;
+    cursor: pointer;
 }
